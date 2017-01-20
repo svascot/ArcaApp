@@ -1,0 +1,33 @@
+<ion-view view-title="Solicitudes canceladas">
+
+  <ion-content>
+  
+  <ion-refresher
+    pulling-text="Hala para recargar..."
+    on-refresh="listarCancelados()">
+  </ion-refresher>
+ 
+    <ul >
+      <li ng-repeat="viaje in cancelados | orderBy:'fecha_incio'">
+        <a  class="item">
+         <div class="card">
+            <div class="item item-divider">
+            <h3>Cliente:</h3>  {{viaje.id_usuario}}
+            </div>
+            <div class="item item-text-wrap">
+              <h3>Fecha inicio:</h3> {{viaje.fecha_incio}}
+              <h3>Fecha fin:</h3> {{viaje.fecha_fin}}
+              <h3>Comentarios:</h3> {{viaje.comentarios_viaje}}
+          </div>   
+              <hr style="  background-color: red; height: 5px;">
+          </div>
+        </a>
+      </li>
+    </ul>
+ 
+ 
+   
+ 
+  
+  </ion-content>
+</ion-view>

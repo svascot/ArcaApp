@@ -1,0 +1,73 @@
+<ion-view view-title="Agendar un compromiso ">
+  <ion-content>
+  
+ 
+            <label class="item item-input">
+          <span class="input-label">Fecha inicio</span>
+          <ionic-datepicker idate="compromiso.fechaInicio" callback="setFechaInicio" >
+            <button class="button button-block button-positive"> {{ naturalDateEsp(compromiso.fechaInicio)}} </button>
+        </ionic-datepicker>
+        </label>
+
+
+           
+         
+        <label class="item item-input" >
+          <span class="input-label">Fecha fin</span>
+            <ionic-datepicker idate="compromiso.fechaFin"  callback="setFechaFin"  >
+            <button class="button button-block button-positive">{{ naturalDateEsp(compromiso.fechaFin)}} </button>
+        </ionic-datepicker>
+        </label>
+        <label class="item item-input">
+               <span class="input-label">Hora inicio del compromiso</span>
+               <ionic-timepicker etime="slots.epochTime" format="slots.format" step="slots.step" callback="setHoraInicio">
+                 <button class="button button-block button-positive">
+                   
+                      {{compromiso.horaInicio | date:'HH:mm'}}
+                   
+                 </button>
+               </ionic-timepicker>
+         </label>
+
+        <label class="item item-input">
+               <span class="input-label">Hora fin del compromiso</span>
+               <ionic-timepicker etime="slots.epochTime" format="slots.format" step="slots.step" callback="setHoraFin">
+                 <button class="button button-block button-positive">
+                   
+                      {{compromiso.horaFin | date:'HH:mm'}}
+                   
+                 </button>
+               </ionic-timepicker>
+         </label>
+
+<!--<label class="item item-input">
+  <span class="input-label">Fecha de inicio</span>
+  <input type="datetime-local" ng-model="compromiso.fecha_incio">       
+  </label>
+
+<label class="item item-input">
+  <span class="input-label">Fecha fin</span>
+  <input type="datetime-local" ng-model="compromiso.fecha_fin">
+</label>
+-->
+<label class="item item-input item-stacked-label">
+  <span class="input-label">Descripción</span>
+
+  <textarea  rows="8" cols="10" ng-model="compromiso.descripcion">
+  </textarea>
+</label>
+
+<button class="button button-full button-balanced" ng-click="crearCompromiso()">
+  Guardar
+</button>
+
+
+ 
+ 
+
+
+
+        
+  
+  </ion-content>
+</ion-view>

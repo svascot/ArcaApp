@@ -1,0 +1,157 @@
+
+  <ion-view view-title="Nueva reserva recurrente">
+    <ion-content>
+    
+
+      <div class="card">
+          <div class="item item-divider">
+           Fechas de la reserva.
+          </div>
+ 
+          
+
+
+
+
+            <label class="item item-input">
+          <span class="input-label">Fecha inicio</span>
+          <ionic-datepicker idate="currentDate" callback="setFechaInicio" >
+            <button class="button button-block button-positive"> {{ currentDate | date:'dd - MMMM - yyyy' }} </button>
+        </ionic-datepicker>
+        </label>
+
+
+           
+         
+        <label class="item item-input" >
+          <span class="input-label">Fecha fin</span>
+            <ionic-datepicker idate="currentDate1"  callback="setFechaFin"  >
+            <button class="button button-block button-positive"> {{ currentDate1 | date:'dd - MMMM - yyyy' }} </button>
+        </ionic-datepicker>
+        </label>
+        <label class="item item-input">
+               <span class="input-label">Hora inicio del compromiso</span>
+               <ionic-timepicker etime="slots.epochTime" format="slots.format" step="slots.step" callback="setHoraInicio">
+                 <button class="button button-block button-positive">
+                   
+                      {{data.horaInicio | date:'HH:mm'}}
+                   
+                 </button>
+               </ionic-timepicker>
+         </label>
+
+        <label class="item item-input">
+               <span class="input-label">Hora fin del compromiso</span>
+               <ionic-timepicker etime="slots2.epochTime" format="slots2.format" step="slots2.step" callback="setHoraFin">
+                 <button class="button button-block button-positive">
+                   
+                      {{data.horaFin | date:'HH:mm'}}
+                   
+                 </button>
+               </ionic-timepicker>
+         </label>
+
+      </div>
+
+      <div class="card">
+        <div class="item item-divider">
+          Dias Festivos.
+        </div>
+        <li class="item item-toggle" >
+           Reservar dias festivos tambien
+           <label class="toggle toggle-positive">
+             <input type="checkbox" ng-model="data.flagFestivos">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+      </div>
+
+
+
+
+      <div class="card">
+          <div class="item item-divider">
+            Dias de la semana a reservar.
+          </div>
+         <li class="item item-toggle">
+       Lunes
+       <label class="toggle toggle-positive">
+         <input type="checkbox" ng-model="data.flagLunes">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+    <li class="item item-toggle">
+       Martes
+       <label class="toggle toggle-positive">
+         <input type="checkbox" ng-model="data.flagMartes">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+    <li class="item item-toggle">
+       Miercoles
+       <label class="toggle toggle-positive">
+         <input type="checkbox" ng-model="data.flagMiercoles">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+    <li class="item item-toggle">
+       Jueves
+       <label class="toggle toggle-positive">
+         <input type="checkbox" ng-model="data.flagJueves">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+    <li class="item item-toggle">
+       Viernes
+       <label class="toggle toggle-positive">
+         <input type="checkbox" ng-model="data.flagViernes">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+    <li class="item item-toggle">
+       Sabado
+       <label class="toggle toggle-positive">
+         <input type="checkbox" ng-model="data.flagSabado">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+    <li class="item item-toggle">
+       Domingo
+       <label class="toggle toggle-positive">
+         <input type="checkbox" ng-model="data.flagDomingo">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+         
+    </div>
+
+
+
+
+     
+   
+    <center>
+    <button   ng-click="reservar()" class="button button-outline button-positive">
+    Reservar tiempo.
+  </button>
+
+  </center>
+
+    </ion-content>
+  </ion-view>

@@ -1,0 +1,41 @@
+<ion-view view-title="Solicitudes ">
+  <ion-content>
+  
+  <ion-refresher
+    pulling-text="Hala para recargar..."
+    on-refresh="listarSolicitudes()">
+  </ion-refresher>
+ 
+    <ul >
+      <li ng-repeat="viaje in solicitudes | orderBy:'fecha_incio'">
+        <a  class="item">
+         <div class="card">
+            <div class="item item-divider">
+            <h3>Cliente:</h3>  {{viaje.id_usuario}}
+            </div>
+            <div class="item item-text-wrap">
+              <h3>Fecha inicio:</h3> {{millisToUTCDate((viaje.fecha_incio*1000)) | date:'dd-M-yyyy  H:mma'}} 
+              <h3>Fecha fin:</h3> {{millisToUTCDate((viaje.fecha_fin*1000)) | date:'dd-M-yyyy  H:mma'}} 
+              <h3>Comentarios:</h3> {{viaje.comentarios_viaje}}
+            </div>
+          <div >
+           <button class="button button-balanced" ng-click="aceptarSolicitud(viaje.id)">
+              Aceptar!
+          </button>
+          <button class="button button-assertive" ng-click="cancelarSolicitud(viaje.id)">
+            Cancelar
+          </button>
+          
+           </div>   
+              <hr style="  background-color: #07F; height: 5px;">
+          </div>
+        </a>
+      </li>
+    </ul>
+ 
+ 
+   
+        
+  
+  </ion-content>
+</ion-view>

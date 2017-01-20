@@ -1,0 +1,92 @@
+ <center>
+ <ion-view view-title="Arca Express" align-title="center"> 
+ </center>
+
+
+
+<ion-tabs class="tabs-positive tabs-icon-only">
+
+  <ion-tab title="Hoy">
+
+<ion-content class="padding">
+  <ion-refresher   
+    on-refresh="listarReservas()">
+  </ion-refresher>
+    <ul >
+      <li ng-repeat="d in dia | orderBy:'fecha_incio'">
+       <a href="#/app/compromiso/{{d.id}}" class="item">
+         <div class="card">
+            <div class="item item-divider">
+            <h3>Cliente:</h3>  {{d.id_usuario}}
+            </div>
+            <div class="item item-text-wrap">
+              <h3>Fecha inicio:</h3> 
+              {{millisToUTCDate((d.fecha_incio*1000)) | date:'dd-M-yyyy  H:mma'}} 
+              <h3>Fecha fin:</h3> 
+              {{millisToUTCDate((d.fecha_fin*1000)) | date:'dd-M-yyyy  H:mma'}}
+              <h3>Comentarios:</h3> <div ng-show="d.comentarios_viaje!='undefined'">{{d.comentarios_viaje}}</div>
+         
+        </a>
+         </div>   
+              <hr style="  background-color: green; height: 5px;">
+          </div>
+      </li>
+    </ul>
+</ion-content>
+
+  </ion-tab>
+
+  <ion-tab title="Semana">
+  <ion-content class="padding">
+   <ion-refresher   
+    on-refresh="listarReservas()">
+  </ion-refresher>
+    <ul >
+      <li ng-repeat="s in semana | orderBy:'fecha_incio'">
+       <a href="#/app/compromiso/{{s.id}}" class="item">
+         <div class="card">
+            <div class="item item-divider">
+            <h3>Cliente:</h3>  {{s.id_usuario}}
+            </div>
+            <div class="item item-text-wrap">
+              <h3>Fecha inicio:</h3> {{millisToUTCDate(s.fecha_incio*1000) | date:'dd-M-yyyy H:mma'}}
+			  <h3>Fecha fin:</h3> {{millisToUTCDate(s.fecha_fin*1000) | date:'dd-M-yyyy H:mma'}}
+              <h3>Comentarios:</h3> {{s.comentarios_viaje}}
+        </a>
+           </div>   
+              <hr style="  background-color: green; height: 5px;">
+          </div>
+      </li>
+    </ul>
+   </ion-content>
+  </ion-tab>
+
+  <ion-tab title="Mes">
+  <ion-content class="padding">
+   <ion-refresher   
+    on-refresh="listarReservas()">
+  </ion-refresher>
+    <ul >
+      <li ng-repeat="m in mes | orderBy:'fecha_incio'">
+       <a href="#/app/compromiso/{{m.id}}" class="item">
+         <div class="card">
+            <div class="item item-divider">
+            <h3>Cliente:</h3>  {{m.id_usuario}}
+            </div>
+            <div class="item item-text-wrap">
+              <h3>Fecha inicio:</h3> {{millisToUTCDate(m.fecha_incio*1000) | date:'dd-M-yyyy H:mma'}} 
+              <h3>Fecha fin:</h3>{{millisToUTCDate(m.fecha_fin*1000) | date:'dd-M-yyyy H:mma'}} 
+              <h3>Comentarios:</h3> {{m.comentarios_viaje}}
+        </a>
+          </div>   
+              <hr style="  background-color: green; height: 5px;">
+          </div>
+      </li>
+    </ul>
+  </ion-content>
+  </ion-tab>
+
+</ion-tabs>
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-view view-title="Arca conductor" class="signup-background" >
+    <ion-nav-bar class="bar-positive">
+    <ion-content>
+      <div class="card" style="margin: auto; width: 60%;  background-color: transparent;   margin-top: 100px;">
+            <form ng-submit="doLogin()">
+                <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Correo:</span>
+                    <input type="text" ng-model="loginData.correo">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Contraseña:</span>
+                    <input type="password" ng-model="loginData.password">
+                </label>
+                 <div class="button-bar">
+                    <button class="button button-block button-positive" type="submit">Entrar</button>
+
+                </div>
+
+               
+                </div>
+            </form>
+            
+            <div side="right">
+         <div >
+        
+        </div>       
+    </ion-content>
+</ion-view>
